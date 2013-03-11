@@ -7,9 +7,6 @@
 [submodule "Vim/bundle/VisIncr"]
 	path = Vim/bundle/VisIncr
 	url = https://github.com/vim-scripts/VisIncr.git
-[submodule "Vim/bundle/adon-mw-utils"]
-	path = Vim/bundle/adon-mw-utils
-	url = https://github.com/vim-scripts/vim-addon-mw-utils.git
 [submodule "Vim/bundle/colorschemes"]
 	path = Vim/bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
@@ -55,3 +52,6 @@
 [submodule "Vim/bundle/webapi"]
 	path = Vim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim.git
+[submodule "Vim/bundle/addon-mw-utils"]
+	path = Vim/bundle/addon-mw-utils
+	url = https://github.com/vim-scripts/vim-addon-mw-utils.git
