@@ -182,7 +182,7 @@ set background=light
 colorscheme obsidian
 
 " Editing font
-set guifont=Monospace\ 12
+set guifont=Monospace\ 11
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -500,3 +500,6 @@ nmap <leader>gw :Gwrite<cr>
 " Gist
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
+
+cd
+
