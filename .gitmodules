@@ -61,3 +61,9 @@
 [submodule "Vim/bundle/html5.vim"]
 	path = Vim/bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
+[submodule "Vim/bundle/FuzzyFinder"]
+	path = Vim/bundle/FuzzyFinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "Vim/bundle/L9"]
+	path = Vim/bundle/L9
+	url = https://github.com/vim-scripts/L9.git
