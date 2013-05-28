@@ -91,6 +91,9 @@ set foldmethod=indent
 " Default completing function
 set omnifunc=syntaxcomplete#Complete
 
+" Tags
+set tags=./tags;/
+
 " Max number of fold levels
 set foldnestmax=10
 
