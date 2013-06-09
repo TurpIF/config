@@ -67,3 +67,6 @@
 [submodule "Vim/bundle/L9"]
 	path = Vim/bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+[submodule "Vim/bundle/argtextobj"]
+	path = Vim/bundle/argtextobj
+	url = https://github.com/vim-scripts/argtextobj.vim.git
