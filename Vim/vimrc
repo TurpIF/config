@@ -113,8 +113,9 @@ set t_vb=
 set timeoutlen=500
 
 " Show tabs / spaces
-"set list listchars=tab:>-,trail:~,extends:>,precedes:<
-set nolist
+set list listchars=tab:>-,trail:~,extends:>,precedes:<
+set showbreak=↪
+"set nolist
 
 " Hide the mouse pointer while typing
 set mousehide
@@ -172,7 +173,6 @@ call pathogen#helptags()
 syntax enable
 
 " Dark backgrounds are better
-set background=light
 
 " Colorschemes:
 "  1 - jellybeans
@@ -183,7 +183,15 @@ set background=light
 "  6 - adrian
 "  7 - ir_black
 " colorscheme obsidian
-colorscheme kib_darktango
+if has("gui_running")
+    set background=dark
+    colorscheme kib_darktango
+else
+    set t_Co=256
+    set background=dark
+    let g:solarized_termcolors=256
+    colorscheme solarized
+endif
 
 " Editing font
 set guifont=Monospace\ 11
@@ -197,15 +205,10 @@ if has("gui_running")
     set go-=m
     set go-=T
     set go+=e
-    "set t_Co=256
     set gtl=%M\ %t
-endif
-
-" Configure for terminal
-if &term =~ "xterm"
+else
     if has("terminfo")
         let g:CommandTCancelMap=['<ESC>','<C-c>']
-        set t_Co=256
         set t_Sf=<Esc>[3%p1%dm
         set t_Sb=<Esc>[4%p1%dm
     else
@@ -229,7 +232,7 @@ set ffs=unix,dos,mac
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
- 
+
 
 " Toggle between absolute / relative line numbering
 map <leader>n :call ToggleRelNumbering()<cr>
@@ -320,6 +323,17 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Various key remaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hack to use the Meta (Alt) key in gnome-terminal
+if !has("gui_running")
+    let c='a'
+    while c <= 'z'
+        exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+        let c = nr2char(1+char2nr(c))
+    endwhile
+    set timeout ttimeoutlen=50
+endif
+
 " Remap Vim 0 to first non-blank character
 nmap 0 ^
 
@@ -559,4 +573,7 @@ nnoremap <silent> sr     :FufRenewCache<cr>
 nnoremap <silent> ss     :FufFile **/<cr>
 nnoremap s <nop>
 
-cd
+" Powerline
+set laststatus=2
+set noshowmode
+let g:Powerline_symbols = 'unicode'

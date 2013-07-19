@@ -3,6 +3,9 @@ if has("autocmd")
     autocmd FileType c,cpp setl foldmethod=syntax
 endif
 
+setl path+=/usr/include/c++/4.7/*
+setl completeopt=menuone,menu,longest,preview
+
 " Fswitch
 nmap <silent> <leader>of :FSHere<cr>
 nmap <silent> <leader>ol :FSRight<cr>
@@ -19,13 +22,13 @@ set tags+=~/.vim/tags/cpp
 "set tags+=~/.vim/tags/boost
 "set tags+=~/.vim/tags/gl
 "set tags+=~/.vim/tags/sdl
-set tags+=~/.vim/tags/sfml
+"set tags+=~/.vim/tags/sfml
 
 " Build Ctags with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 
 " OmniCppComplete
-let OmniCpp_DefaultNamespaces=["std", "sf"]
+let OmniCpp_DefaultNamespaces=[]
 let OmniCpp_GlobalScopeSearch=1
 let OmniCpp_NamespaceSearch=1
 let OmniCpp_ShowPrototypeInAbbr=1
@@ -36,4 +39,3 @@ let OmniCpp_MayCompleteDot=0
 
 " Automatically open and close the popup menu / preview window
 autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview

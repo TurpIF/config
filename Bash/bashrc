@@ -103,4 +103,5 @@ mkcd()
     mkdir -p "$dir" && cd "$dir";
 }
 
-alias logicworks="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/LogicWorks\ 5/LogicWorks.exe"
+# Use powerline for the shell prompt
+. ~/.powerline/powerline/bindings/bash/powerline.sh
