@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/turpif/Projet/EUSDAB/assets'
-let g:netrw_dirhist_2='/home/turpif/logiciel/bullet-2.81-rev2613/Demos/CollisionDemo/CMakeFiles'

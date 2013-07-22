@@ -1,0 +1,189 @@
+#!/bin/zsh
+#
+# Main configuration for zsh
+#
+# vim: set ft=zsh
+
+# Options
+setopt \
+   append_history \
+   auto_cd \
+   auto_list \
+NO_auto_name_dirs \
+   auto_param_keys \
+   auto_param_slash \
+   auto_pushd \
+   auto_remove_slash \
+NO_auto_resume \
+   bad_pattern \
+   bang_hist \
+NO_beep \
+   brace_ccl \
+   correct_all \
+NO_bsd_echo \
+   cdable_vars \
+NO_chase_links \
+NO_clobber \
+   complete_aliases \
+   complete_in_word \
+   correct \
+   correct_all \
+NO_csh_null_glob \
+NO_dvorak \
+   equals \
+   extended_glob \
+   extended_history \
+   function_argzero \
+   glob \
+NO_glob_assign \
+   glob_complete \
+   hash_cmds \
+   hash_dirs \
+   hash_list_all \
+   hist_allow_clobber \
+   hist_beep \
+   hist_ignore_dups \
+   hist_ignore_space \
+NO_hist_no_store \
+NO_hist_save_no_dups \
+   hist_verify \
+NO_hup \
+NO_ignore_braces \
+NO_ignore_eof \
+   interactive_comments \
+   list_types \
+   long_list_jobs \
+   magic_equal_subst \
+NO_mail_warning \
+NO_mark_dirs \
+   multios \
+NO_nomatch \
+   notify \
+NO_null_glob \
+   numeric_glob_sort \
+NO_overstrike \
+   path_dirs \
+   posix_builtins \
+NO_print_exit_value \
+NO_prompt_cr \
+   prompt_subst \
+   pushd_ignore_dups \
+NO_pushd_minus \
+NO_pushd_silent \
+   pushd_to_home \
+   rc_expand_param \
+NO_rc_quotes \
+NO_rm_star_silent \
+NO_sh_file_expansion \
+   sh_option_letters \
+   short_loops \
+NO_sh_word_split \
+NO_single_line_zle \
+
+HISTFILE=~/.histfile
+HISTSIZE=800
+SAVEHIST=800
+
+# For setting history length see HISTSIZE and SAVEHIST
+HISTSIZE=1000
+SAVEHIST=2000
+
+# Set the file for the history
+HISTFILE=~/.zsh_history
+
+# Don't put duplicate lines or lines starting with space int the history
+HISTCONTROL=ignoreboth
+
+# Make less more friendly for non-text input files
+if [ -x /usr/bin/lesspipe ]; then
+    export "LESSOPEN=| /usr/bin/lesspipe %s"
+    export "LESSCLOSE=/usr/bin/lesspipe %s %s"
+fi
+
+# Use the vim configuration for the key shortcuts
+bindkey -v
+
+# Use the plugin powerline for the prompt
+. ~/.powerline/powerline/bindings/zsh/powerline.zsh
+
+
+# Colors
+if [[ -f ~/.dircolors ]] ; then
+    eval $(dircolors -b ~/.dircolors)
+elif [[ -f /etc/DIR_COLORS ]] ; then
+    eval $(dircolors -b /etc/DIR_COLORS)
+fi
+
+# Auto completion
+autoload -U compinit ; compinit
+zmodload -i zsh/complist
+autoload -U colors
+colors
+
+#
+# Configuration for shell aliases.
+#
+
+# Security aliases
+alias rm="rm -vi"
+alias cp="cp -vi"
+alias mv="mv -vi"
+
+# Human readable size aliases
+alias free="free -m"
+alias df="df -h"
+alias ls="ls -h"
+alias du="du -h"
+
+# Package managing
+alias install="sudo apt-get install"
+alias remove="sudo apt-get remove"
+alias autoremove="sudo apt-get autoremove"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade --show-upgraded"
+alias clean="sudo apt-get clean"
+alias search="sudo apt-cache search"
+alias uua="sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get autoremove -y"
+
+# Navigation
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+if [ -d "~/Download" ]; then
+    alias dw="cd ~/Downloads"
+elif [ -d "~/Téléchargements" ]; then
+    alias dw="cd ~/Téléchargements"
+fi
+alias doc="cd ~/Documents"
+if [ -d "~/Desktop" ]; then
+    alias dw="cd ~/Desktop"
+elif [ -d "~/Bureau" ]; then
+    alias dw="cd ~/Bureau"
+fi
+alias desk="cd ~/Desktop"
+alias www="cd /var/www"
+alias mkdir="mkdir -p"
+
+# Quick display
+alias grep="grep --color=auto"
+alias tree="tree -Csu"
+alias ls="ls -X --color=auto"
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="ls -la"
+alias lr="ls -r"
+
+# Shortcuts for software
+alias v="vim"
+alias g="gvim -f --remote-silent"
+alias google="google-chrome --enable-plugins"
+
+#
+# Configuration for shell profile
+#
+# Configure terminal correctly for Vim
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi

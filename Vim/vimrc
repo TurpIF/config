@@ -374,6 +374,7 @@ nmap <leader>ls :!ls<cr>
 " Edit / Source configuration
 nmap <leader>co :e $MYVIMRC<cr>
 nmap <leader>so :so $MYVIMRC<cr>
+autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
 " Toggle paste mode on and off
 nmap <leader>pp :setlocal paste!<cr>
@@ -576,4 +577,4 @@ nnoremap s <nop>
 " Powerline
 set laststatus=2
 set noshowmode
-let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'unicode'
