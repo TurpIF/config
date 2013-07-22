@@ -104,6 +104,7 @@ fi
 bindkey -v
 
 # Use the plugin powerline for the prompt
+export PYTHONPATH=~/.config/:$PYTHONPATH
 . ~/.powerline/powerline/bindings/zsh/powerline.zsh
 
 
