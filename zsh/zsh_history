@@ -1,0 +1,27 @@
+#!/bin/zsh
+#
+# Configuration of the history
+#
+# vim: set ft=zsh
+
+# Size of the history
+export HISTORY=1000
+export SAVEHIST=1000
+
+# File where history is stored
+export HISTFILE=$HOME/.history
+
+# Append at the end of the file
+setopt append_history
+
+# Each line are store while they are typed
+setopt inc_append_history
+
+# Don't stock repetition and blank line
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_expire_dups_first
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+setopt bang_hist

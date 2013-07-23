@@ -1,0 +1,17 @@
+#!/bin/zsh
+#
+# Configuration of the inputs
+#
+# vim: set ft=zsh
+
+# Use the vim configuration for the key shortcuts
+bindkey -v
+
+# Fix some bugs with Home, End, Del keys
+bindkey "^[OH" beginning-of-line                 # Home
+bindkey "^[OF" end-of-line                       # End
+bindkey "^[[3~" delete-char                      # Delete
+bindkey '[2~' overwrite-mode                   # Insert
+bindkey '[5~' history-search-backward          # PgUp
+bindkey '[6~' history-search-forward           # PgDn
+bindkey "^R" history-incremental-search-backward # Search

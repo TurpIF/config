@@ -1,0 +1,8 @@
+#!/bin/zsh
+#
+# Configuration of the prompt
+#
+# vim: set ft=zsh
+
+# Use the plugin powerline for the prompt
+. ~/.powerline/powerline/bindings/zsh/powerline.zsh

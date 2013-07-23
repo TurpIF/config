@@ -1,0 +1,53 @@
+#!/bin/zsh
+#
+# Autocompletion configuration
+#
+
+# Change the apparence of the autocompletion
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no match for %d%b'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt '%SScrolling active: current seelction at %p%s'
+
+# Fix autocompletion with rm, mv and cp
+# Disable entries already put in the command
+zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:cp:*' ignore-line yes
+zstyle ':completion:*:mv:*' ignore-line yes
+
+# Rule for sudo
+set path_='/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:'$PATH
+zstyle ':completion:*:sudo:*' command-path $path_
+
+# Some configuration
+zstyle ':completion:*' add-space true
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate _prefix
+zstyle ':completion:*' completions '	'
+zstyle ':completion:*' glob '	'
+zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' substitute '	'
+
+# Rule for kill and killall command
+zstyle ':completion:*:processes' command 'ps -ax'
+zstyle ':completion:*:processes-names' command 'ps -aeo comm='
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:killall:*:processes-names' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:killall:*' menu yes select
+
+# Set colors in the list
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors 'reply=( "=(#b)(*$VAR)(?)*=00=$color[green]=$color[bg-green]" )'
+zstyle ':completion:*:*:*:*:hosts' list-colors '=*=30;41'
+zstyle ':completion:*:*:*:*:users' list-colors '=*=$color[green]=$color[red]'
+
+# Active the autocompletion module
+zmodload -a colors
+zmodload -a autocomplete
+zmodload -a complist
+autoload -U compinit
+compinit -i
+
+# Active the autocompletion with bash
+autoload -U bashcompinit
+bashcompinit

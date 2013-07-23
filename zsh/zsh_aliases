@@ -1,0 +1,59 @@
+#!/bin/zsh
+#
+# Aliases used by zsh
+#
+# vim: set ft=zsh
+
+# Security aliases
+alias rm="rm -vi"
+alias cp="cp -vi"
+alias mv="mv -vi"
+
+# Human readable size aliases
+alias free="free -m"
+alias df="df -h"
+alias du="du -h"
+
+# Package managing
+alias install="sudo apt-get install"
+alias remove="sudo apt-get remove"
+alias autoremove="sudo apt-get autoremove"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade --show-upgraded"
+alias clean="sudo apt-get clean"
+alias search="sudo apt-cache search"
+alias uua="sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get autoremove -y"
+
+# Navigation
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+if [ -d "~/Download" ]; then
+    alias dw="cd ~/Downloads"
+elif [ -d "~/Téléchargements" ]; then
+    alias dw="cd ~/Téléchargements"
+fi
+alias doc="cd ~/Documents"
+if [ -d "~/Desktop" ]; then
+    alias dw="cd ~/Desktop"
+elif [ -d "~/Bureau" ]; then
+    alias dw="cd ~/Bureau"
+fi
+alias desk="cd ~/Desktop"
+alias www="cd /var/www"
+alias mkdir="mkdir -p"
+
+# Quick display
+alias grep="grep --color=auto"
+alias tree="tree -Csu"
+alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="ls -la"
+alias lr="ls -r"
+
+# Shortcuts for software
+alias v="vim"
+alias g="gvim -f --remote-silent"
+alias google="google-chrome --enable-plugins"
+
