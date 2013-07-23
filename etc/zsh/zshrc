@@ -90,6 +90,3 @@ source $ZSH_CONF_DIR/zsh_profile
 
 # Prompt
 source $ZSH_CONF_DIR/zsh_prompt
-
-# Inputs modufication
-source $ZSH_CONF_DIR/zsh_inputs
