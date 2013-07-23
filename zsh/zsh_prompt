@@ -5,4 +5,4 @@
 # vim: set ft=zsh
 
 # Use the plugin powerline for the prompt
-. ~/.powerline/powerline/bindings/zsh/powerline.zsh
+. ~/.bundle/zsh/zsh-powerline/powerline.zsh

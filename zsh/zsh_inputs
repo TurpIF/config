@@ -14,4 +14,6 @@ bindkey "^[[3~" delete-char                      # Delete
 bindkey '[2~' overwrite-mode                   # Insert
 bindkey '[5~' history-search-backward          # PgUp
 bindkey '[6~' history-search-forward           # PgDn
+bindkey '[A' history-search-backward           # Up
+bindkey '[B' history-search-forward            # Down
 bindkey "^R" history-incremental-search-backward # Search
