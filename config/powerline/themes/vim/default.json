@@ -9,6 +9,9 @@
 		},
 		"line_current_symbol": {
 			"contents": " "
+		},
+		"branch": {
+			"before": " "
 		}
 	},
 	"segments": {
@@ -23,13 +26,7 @@
 				"priority": 10
 			},
 			{
-				"module": "powerline.segments.my",
-				"name": "git_status_line",
-                "args": {
-                    "head": "⭠ ",
-                    "detached": "➦ ",
-                    "dirty": " ±"
-                },
+				"name": "branch",
 				"exclude_modes": ["nc"],
 				"priority": 30
 			},
