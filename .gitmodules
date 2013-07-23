@@ -1,74 +1,74 @@
-[submodule "bundle/Command-T"]
-	path = bundle/Command-T
+[submodule "bundle/vim/Command-T"]
+	path = bundle/vim/Command-T
 	url = https://github.com/wincent/Command-T.git
-[submodule "bundle/OmniCppComplete"]
-	path = bundle/OmniCppComplete
+[submodule "bundle/vim/OmniCppComplete"]
+	path = bundle/vim/OmniCppComplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
-[submodule "bundle/VisIncr"]
-	path = bundle/VisIncr
+[submodule "bundle/vim/VisIncr"]
+	path = bundle/vim/VisIncr
 	url = https://github.com/vim-scripts/VisIncr.git
-[submodule "bundle/colorschemes"]
-	path = bundle/colorschemes
+[submodule "bundle/vim/colorschemes"]
+	path = bundle/vim/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "bundle/fswitch"]
-	path = bundle/fswitch
+[submodule "bundle/vim/fswitch"]
+	path = bundle/vim/fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
+[submodule "bundle/vim/fugitive"]
+	path = bundle/vim/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/gist"]
-	path = bundle/gist
+[submodule "bundle/vim/gist"]
+	path = bundle/vim/gist
 	url = https://github.com/mattn/gist-vim.git
-[submodule "bundle/markdown"]
-	path = bundle/markdown
+[submodule "bundle/vim/markdown"]
+	path = bundle/vim/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/matchit"]
-	path = bundle/matchit
+[submodule "bundle/vim/matchit"]
+	path = bundle/vim/matchit
 	url = https://github.com/tmhedberg/matchit.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+[submodule "bundle/vim/nerdcommenter"]
+	path = bundle/vim/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule "bundle/vim/nerdtree"]
+	path = bundle/vim/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/python-matchit"]
-	path = bundle/python-matchit
+[submodule "bundle/vim/python-matchit"]
+	path = bundle/vim/python-matchit
 	url = https://github.com/voithos/vim-python-matchit.git
-[submodule "bundle/repeat"]
-	path = bundle/repeat
+[submodule "bundle/vim/repeat"]
+	path = bundle/vim/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "bundle/SuperTab"]
-	path = bundle/SuperTab
+[submodule "bundle/vim/SuperTab"]
+	path = bundle/vim/SuperTab
 	url = https://github.com/vim-scripts/SuperTab.git
-[submodule "bundle/surround"]
-	path = bundle/surround
+[submodule "bundle/vim/surround"]
+	path = bundle/vim/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/taglist"]
-	path = bundle/taglist
+[submodule "bundle/vim/taglist"]
+	path = bundle/vim/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "bundle/visual-star-search"]
-	path = bundle/visual-star-search
+[submodule "bundle/vim/visual-star-search"]
+	path = bundle/vim/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
-[submodule "bundle/webapi"]
-	path = bundle/webapi
+[submodule "bundle/vim/webapi"]
+	path = bundle/vim/webapi
 	url = https://github.com/mattn/webapi-vim.git
-[submodule "bundle/addon-mw-utils"]
-	path = bundle/addon-mw-utils
+[submodule "bundle/vim/addon-mw-utils"]
+	path = bundle/vim/addon-mw-utils
 	url = https://github.com/vim-scripts/vim-addon-mw-utils.git
-[submodule "bundle/MatchTag"]
-	path = bundle/MatchTag
+[submodule "bundle/vim/MatchTag"]
+	path = bundle/vim/MatchTag
 	url = https://github.com/gregsexton/MatchTag.git
-[submodule "bundle/html5.vim"]
-	path = bundle/html5.vim
+[submodule "bundle/vim/html5.vim"]
+	path = bundle/vim/html5.vim
 	url = https://github.com/othree/html5.vim.git
-[submodule "bundle/FuzzyFinder"]
-	path = bundle/FuzzyFinder
+[submodule "bundle/vim/FuzzyFinder"]
+	path = bundle/vim/FuzzyFinder
 	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "bundle/L9"]
-	path = bundle/L9
+[submodule "bundle/vim/L9"]
+	path = bundle/vim/L9
 	url = https://github.com/vim-scripts/L9.git
-[submodule "bundle/argtextobj"]
-	path = bundle/argtextobj
+[submodule "bundle/vim/argtextobj"]
+	path = bundle/vim/argtextobj
 	url = https://github.com/vim-scripts/argtextobj.vim.git
 [submodule "bundle/powerline"]
 	path = bundle/powerline
