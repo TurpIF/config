@@ -12,12 +12,7 @@
 		},
 		"branch": {
 			"before": " "
-		},
-        "system_load": {
-            "before": "o "
-        },
-        "network_load": {
-        }
+		}
 	},
 	"segments": {
 		"left": [
@@ -46,7 +41,7 @@
 				"module": "powerline.segments.my",
 				"name": "git_status_line",
                 "args": {
-                    "head": "⭠ ",
+                    "head": " ",
                     "detached": "➦ ",
                     "dirty": " ±"
                 }

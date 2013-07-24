@@ -2,10 +2,10 @@
 # Intallation script
 
 file_installed=".installed"
-dotfiles_dir="./dotfiles"
-config_dir="./config"
-etc_dir="./etc"
-bundle_dir="./bundle"
+dotfiles_dir="dotfiles"
+config_dir="config"
+etc_dir="etc"
+bundle_dir="bundle"
 
 add_not_installed=false
 recursive=false
@@ -55,21 +55,9 @@ install_symlink()
     fi
 }
 
+# Place all files in dotfiles dir in the home dir as hidden files (by a symbolic link).
 install_all()
 {
-    ## Create a symbolic link in home to the bundle directory and the etc directory
-    #install_symlink $PWD/$etc_dir $HOME/.etc $file_installed
-    #install_symlink $PWD/$bundle_dir $HOME/.bundle $file_installed
-
-    ## Put symbolic link from all files in config directory to ~/.config
-    ## If ~/.config doesn't exist, create it
-    #mkdir -p $HOME/.config
-    #for file in $config_dir/*; do
-    #    file=$(basename $file)
-    #    install_symlink $PWD/$config_dir/$file $HOME/.config/$file $file_installed
-    #done
-
-    # Place all files in dotfiles dir in the home dir as hidden files (by a symbolic link).
     for file in $dotfiles_dir/*; do
         file=$(basename $file)
         install_symlink $PWD/$dotfiles_dir/$file $HOME/.$file $file_installed

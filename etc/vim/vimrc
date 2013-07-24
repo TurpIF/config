@@ -120,9 +120,12 @@ set mouse=
 " Always put a status line in, even if there is only one window
 set laststatus=2
 
+" Use zsh instead of bash
+set shell=/bin/zsh
+
 " Status line stolen from Derek Wyatt's configuration:
 "  - found here : "https://github.com/derekwyatt/vim-config/blob/master/vimrc"
-set statusline=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+"set statusline=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -142,8 +145,8 @@ set softtabstop=4
 "set linebreak
 "set textwidth=100
 
-" Virtual edit (awesome)
-"set virtualedit=all
+" Virtual edit
+set virtualedit=all
 
 " Explicit FTW
 set autoindent
@@ -189,6 +192,7 @@ endif
 
 " Editing font
 set guifont=Monospace\ 11
+set guifont=Deja\ Vu\ Sans\ Mono\ For\ Powerline\ 11
 
 " Set extra options when running in GUI mode
 if has("gui_running")
