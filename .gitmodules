@@ -58,3 +58,21 @@
 [submodule "bundle/powerline-fonts"]
 	path = bundle/powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule "bundle/vim/FuzzyFinder"]
+	path = bundle/vim/FuzzyFinder
+	url = https://github.com/vim-scripts/FuzzyFinder
+[submodule "bundle/vim/L9"]
+	path = bundle/vim/L9
+	url = https://github.com/vim-scripts/L9
+[submodule "bundle/vim/OmniCppComplete"]
+	path = bundle/vim/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete
+[submodule "bundle/vim/VisIncr"]
+	path = bundle/vim/VisIncr
+	url = https://github.com/vim-scripts/VisIncr
+[submodule "bundle/vim/taglist"]
+	path = bundle/vim/taglist
+	url = https://github.com/vim-scripts/taglist.vim
+[submodule "bundle/vim/addon-mw-utils"]
+	path = bundle/vim/addon-mw-utils
+	url = https://github.com/vim-scripts/vim-addon-mw-utils
