@@ -45,7 +45,7 @@ install_symlink()
                 else
                     echo "WARNING: $target exists but is not in $file_installed"
                 fi
-            else
+            #else
                 #echo "IGN: $from -> $target already installed"
             fi
         fi
