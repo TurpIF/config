@@ -1,12 +1,6 @@
 [submodule "bundle/vim/Command-T"]
 	path = bundle/vim/Command-T
 	url = https://github.com/wincent/Command-T.git
-[submodule "bundle/vim/OmniCppComplete"]
-	path = bundle/vim/OmniCppComplete
-	url = https://github.com/vim-scripts/OmniCppComplete.git
-[submodule "bundle/vim/VisIncr"]
-	path = bundle/vim/VisIncr
-	url = https://github.com/vim-scripts/VisIncr.git
 [submodule "bundle/vim/colorschemes"]
 	path = bundle/vim/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
@@ -43,30 +37,18 @@
 [submodule "bundle/vim/surround"]
 	path = bundle/vim/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/vim/taglist"]
-	path = bundle/vim/taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/vim/visual-star-search"]
 	path = bundle/vim/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
 [submodule "bundle/vim/webapi"]
 	path = bundle/vim/webapi
 	url = https://github.com/mattn/webapi-vim.git
-[submodule "bundle/vim/addon-mw-utils"]
-	path = bundle/vim/addon-mw-utils
-	url = https://github.com/vim-scripts/vim-addon-mw-utils.git
 [submodule "bundle/vim/MatchTag"]
 	path = bundle/vim/MatchTag
 	url = https://github.com/gregsexton/MatchTag.git
 [submodule "bundle/vim/html5.vim"]
 	path = bundle/vim/html5.vim
 	url = https://github.com/othree/html5.vim.git
-[submodule "bundle/vim/FuzzyFinder"]
-	path = bundle/vim/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "bundle/vim/L9"]
-	path = bundle/vim/L9
-	url = https://github.com/vim-scripts/L9.git
 [submodule "bundle/vim/argtextobj"]
 	path = bundle/vim/argtextobj
 	url = https://github.com/vim-scripts/argtextobj.vim.git
