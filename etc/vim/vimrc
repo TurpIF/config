@@ -1,578 +1,315 @@
-﻿""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+﻿""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sections:
-"   - General
-"   - Vim user interface
-"   - Status line
-"   - Text, tab and indent related
-"   - Plugin settings
-"   - Colors and Fonts
-"   - Moving around, tabs and buffers
-"   - Searching
-"   - Various key remaps
-"   - Helper functions
-"   - Filetype settings
-"   - Plugin customization
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     General
+"     VIM user interface
+"     Syntax
+"     Colors and fonts
+"     Files and backups
+"     Text, buffers, tab and indent related
+"     Editing mappings
+"     Plugins customization
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history Vim has to remember
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader map
+let mapleader = ","
+
+" Use the plugin pathogen to include other plugins
+call pathogen#infect()
+call pathogen#helptags()
+
+" Size of the history
 set history=700
 
-" Set to auto read when a file is changed from the outside
+" Read again the current file if it has been edited from outside
 set autoread
 
-" Remove Vim's startup message (sorry...)
-set shortmess+=I
+" Enable filetype
+filetype plugin on
+filetype indent on
 
-" Set mapleader (shortcut key) to ","
-let mapleader = ","
-let g:mapleader = ","
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM user interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shorten some message of vim
+set shortmess=aTWI
 
-" Turn backup off, since most stuff is in svn / git anyway...
-set nobackup
-set nowb
-set noswapfile
+" Always show the status line
+set laststatus=2
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim user interface
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 5 lines to the cursor - when moving vertically using j / k
-set scrolloff=5
+" Do not show the used mode (for powerline)
+set noshowmode
 
-" Turn on the WiLd menu
+" Title is the name of the current file
+set title
+
+" Set 13 lines to the cursor - when moving vertically using j/k
+" 13 for the luck
+set scrolloff=13
+
+" Active the wild menu
 set wildmenu
 
-" Behave shell-like when completing shell
-set wildmode=longest,list
+" Use <TAB> to show the wildmenu
+set wildchar=<TAB>
 
-" Ignore compiled files and backups
-set wildignore=*.o,*~,*.pyc,*.gch
+" Set the mode of the completion
+set wildmode=list:longest
 
-" Compatible options
-set cpoptions+=$
-
-" Show line numbers
-set number
+" Ignore compiled files
+set wildignore=*.o,*.pyc,*~
 
 " Always show current position
 set ruler
 
-" Height of the command bar
-set cmdheight=2
+" Show line number
+set number
 
-" A buffer becomes hidden when it is abandoned
-set hidden
+" Height of the command line
+set cmdheight=1
 
-" Configure backspace so it acts as it should act
+" Specifies backspace
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
-" Don't redraw while executing macros (good performance config)
+" Add wrapping in normal and visual mode
+set whichwrap+=<,>,l,h
+
+" Don't redraw while executing macros
 set lazyredraw
 
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
-set showmatch
-
-" Fold settings
-set foldmethod=indent
-
-" Default completing function
-set omnifunc=syntaxcomplete#Complete
-
-" Tags
-set tags=./tags;/
-
-" Max number of fold levels
-set foldnestmax=10
-
-" Folding everything
-set nofoldenable
-
-" Again, folding parent levels
-set foldlevel=1
-
-" How many tenths of a second to blink when matching brackets
-set matchtime=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set timeoutlen=500
-
-" Show tabs / spaces
-set list listchars=tab:>-,trail:~,extends:>,precedes:<
-set showbreak=↪
-"set nolist
-
-" Hide the mouse pointer while typing
+" Disable mouse
+set mouse=
 set mousehide
 
-" Deactivate mouse entirely
-set mouse=
-
-" Always put a status line in, even if there is only one window
-set laststatus=2
-
-" Use zsh instead of bash
-set shell=/bin/zsh
-
-" Status line stolen from Derek Wyatt's configuration:
-"  - found here : "https://github.com/derekwyatt/vim-config/blob/master/vimrc"
-"set statusline=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-
-" Linebreak on 100 characters
-"set linebreak
-"set textwidth=100
-
-" Virtual edit
-set virtualedit=all
-
-" Explicit FTW
-set autoindent
-set smartindent
-set wrap
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable filetype plugins
-filetype plugin indent on
-
-" Start Pathogen plugin to load bundle
-call pathogen#infect()
-call pathogen#helptags()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-
-" Dark backgrounds are better
-
-" Colorschemes:
-"  1 - jellybeans
-"  2 - obsidian
-"  3 - mustang
-"  4 - wombat
-"  5 - tesla
-"  6 - adrian
-"  7 - ir_black
-" colorscheme obsidian
-if has("gui_running")
-    set background=dark
-    colorscheme kib_darktango
-else
-    set t_Co=256
-    set background=dark
-    let g:solarized_termcolors=256
-    colorscheme solarized
-endif
-
-" Editing font
-set guifont=Monospace\ 11
-set guifont=Deja\ Vu\ Sans\ Mono\ For\ Powerline\ 11
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set go-=r
-    set go-=R
-    set go-=l
-    set go-=L
-    set go-=m
-    set go-=T
-    set go+=e
-    set gtl=%M\ %t
-else
-    if has("terminfo")
-        let g:CommandTCancelMap=['<ESC>','<C-c>']
-        set t_Sf=<Esc>[3%p1%dm
-        set t_Sb=<Esc>[4%p1%dm
-    else
-        set t_Co=8
-        set t_Sf=<Esc>[3%dm
-        set t_Sb=<Esc>[4%dm
-    endif
-endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-" setglobal fileencoding=utf-8
-" set bomb
-" set termencoding=iso-8859-15
-" set fileencodings=ucs-bom,iso-8859-15,iso-8859-3,utf-8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treat long lines as break lines (useful when moving around in them)
-
-
-" Toggle between absolute / relative line numbering
-map <leader>n :call ToggleRelNumbering()<cr>
-vmap <leader>n <Esc><leader>ngv
-
-try
-    " Specify the behavior when switching between buffers
-    set switchbuf=useopen,usetab,newtab
-
-    " Tab display
-    set showtabline=0
-catch
-endtry
-
-if has("autocmd")
-
-    " Return to last edit position when opening files
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal! g`\"" |
-                \ endif
-endif
-
-" Useful mappings for managing tabs
-nmap <leader>tn :tabnew<cr>
-nmap <leader>to :tabonly<cr>
-nmap <leader>tc :tabclose<cr>
-nmap <C-tab> :tabnext<cr>
-nmap <C-S-tab> :tabprevious<cr>
-
-" Switch CWD to the directory of the open buffer
-nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Close buffer without closing window
-nmap <silent> <leader>bd :Bclose!<cr>
-
-" Close all buffers
-nmap <silent> <leader>ba :1,1000bd!<cr>
-
-" Move a line of text using ALT+[jk]
-nnoremap <M-j> :m .+1<cr>==
-nnoremap <M-k> :m .-2<cr>==
-inoremap <M-j> <Esc>:m .+1<cr>==gi
-inoremap <M-k> <Esc>:m .-2<cr>==gi
-vnoremap <M-j> :m '>+1<cr>gv=gv
-vnoremap <M-k> :m '<-2<cr>gv=gv
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Searching
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ignore case
-set ignorecase
-
-" Try to be smart about cases
-set smartcase
-
-" Highlight results
-set hlsearch
-
-" Makes search act like in modern browsers
-set incsearch
-
-" Center screen at cursor
-nnoremap n nzz
-nnoremap } }zz
-
-" Highlight the current line and the current cursor during the insert mode
-if (has("autocmd"))
-    autocmd insertLeave * set nocursorcolumn
-    autocmd insertEnter * set cursorcolumn
-endif
-set cursorline
-
-" Replace indentation, eol and other non visible char
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set list
-
-" Disable highlight when <leader><cr> is pressed
-nmap <silent> <leader><cr> :nohls<cr>
-
-" Find current word in new window
-nmap <leader>sw :let @/=expand("<cword>")<bar>split<bar>normal n<cr>
-nmap <leader>sW :let @/='\<'.expand("<cword>").'\>'<bar>split<bar>normal n<cr>
-
-" Quick search-replace
-nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<left><left>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Various key remaps
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Hack to use the Meta (Alt) key in gnome-terminal
+" Fix for terminal enabling ALT key mappings
 if !has("gui_running")
-    let c='a'
-    while c <= 'z'
-        exec "set <A-".c.">=\e".c
-        exec "imap \e".c." <A-".c.">"
-        let c = nr2char(1+char2nr(c))
+    let s:c = "a"
+    while s:c <= "z"
+        execute "set <A-" . s:c . ">=\e" . s:c
+        execute "imap \e" . s:c . " <A-" . s:c . ">"
+        let s:c = nr2char(1 + char2nr(s:c))
     endwhile
     set timeout ttimeoutlen=50
 endif
 
-" Remap Vim 0 to first non-blank character
-nmap 0 ^
+" Enable magic for regular exp
+set magic
 
-" Exchange "`" and "'"
-nnoremap ' `
-nnoremap ` '
+" Ignore case when searching
+set ignorecase
 
-" Map ";" to ":" (avoid typos)
-noremap ; :
+" Try to be smart about cases when searching
+set smartcase
 
-" Map "²" to "~" (quicker), and don't go forward one character
-"nmap ² ~h
+" Higlight search result
+set hlsearch
 
-" Resolve inconsistency between "Y" (line),
-"   and "D" (til end of line)
-"nmap D dd
+" When search is canceled, return to the old position
+set incsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax detection
+syntax enable
+
+" Show matching brackets
+set showmatch
+set matchtime=2
+
+" Tags (go up directories and collect "tags" files)
+set tags=./tags;/
+
+" Default complete function
+set omnifunc=syntaxcomplete#Complete
+
+" Set style of the completion
+set completeopt=menu,preview
+
+" Expand path with local files
+set path+=/usr/local/include
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors and fonts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set the background
+set background=dark
+
+" 256 colors term
+set t_Co=256
+
+" Colorscheme
+let g:solarized_termcolors=256
+colorscheme solarized
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files and backups
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remove backup files
+set nobackup
+set nowritebackup
+
+" Do not use swap file
+set noswapfile
+
+" Use UTF-8 charset
+set encoding=utf-8
+
+" Choose the good file encoding
+set fileencodings=ucs-bom,utf-8,default,latin1
+
+" Choose the good file format
+set fileformats=unix,dos
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Text, buffers, tab and related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation option
+set autoindent
+set smartindent
+set shiftwidth=4
+
+" Tabulation option
+set expandtab
+set smarttab
+set softtabstop=4
+set tabstop=8
+
+" Replace indentation, eol and other non visible char
+set list listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮,eol:¤
+set showbreak=↪
+
+" Virtual edit
+" set virtualedit=all
+
+" Line break on 100 characters
+" set linebreak
+" set textwidth=100
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Editing mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable arrows key
+nnoremap <up>    <nop>
+nnoremap <down>  <nop>
+nnoremap <left>  <nop>
+nnoremap <right> <nop>
+
+" Shortcut to save
+nnoremap <leader>w :write<cr>
+
+" Close current file
+nmap <leader>q :quit<cr>
+
+" Run ls in shell
+nmap <leader>ls :!ls<cr>
+
+" Edit/Source vimrc
+nmap <leader>co :edit $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" Switch CWD to the directory of the current buffer
+nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Disable highlight
+nmap <leader><cr> :set nohlsearch<cr>
+
+" Quick search and replace
+nnoremap <leader>r :%s/\v<<C-r><C-w>>//gI<left><left><left>
+" TODO enable this in visual mode
+
+" Transform Y to y$
 nmap Y y$
 
-" Visual block indenting: keep selection after indenting
+" Indentation with visual mode keep the selection
 vmap > >gv
 vmap < <gv
 
-" Disable arrow keys (forever...)
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" Move rapidly between opened windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Fast saving
-nnoremap <leader>w :w!<cr>
+" Remap vim 0 to first non-blank char
+nmap 0 ^
 
-" Close current file
-nmap <leader>q :q<cr>
-
-" Run "ls" in cwd Shell
-nmap <leader>ls :!ls<cr>
-
-" Edit / Source configuration
-nmap <leader>co :e $MYVIMRC<cr>
-nmap <leader>so :so $MYVIMRC<cr>
-autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-
-" Toggle paste mode on and off
-nmap <leader>pp :setlocal paste!<cr>
-
-" Toggle spell-checking
-nmap <leader>ss :setlocal spell!<cr>
+" Quick indenting
+nmap <tab> ==
 
 " Quick make command
-map <leader>m :make<cr>
+nmap <leader>m :make<cr>
 
-" Change paste motion cp{motion}
-nmap <silent> cp :set opfunc=ChangePaste<CR>g@
-function! ChangePaste(type, ...)
-    silent exe "normal! `[v`]\"_c"
-    silent exe "normal! p"
-endfunction
+" Exchange ' `
+nnoremap ' `
+nnoremap ` '
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Delete buffer while keeping window layout (don't close buffer's windows).
-" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
-if v:version < 700 || exists('loaded_bclose') || &cp
-    finish
-endif
-let loaded_bclose = 1
-if !exists('bclose_multiple')
-    let bclose_multiple = 1
-endif "}}}
+" Move a line of text using Alt+[jk]
+nnoremap <M-j> mz:move .+1<cr>`z
+nnoremap <M-k> mz:move .-2<cr>`z
+inoremap <M-j> <esc>:move .+1<cr>gi
+inoremap <M-k> <esc>:move .-2<cr>gi
+vnoremap <M-j> :move '>+1<cr>gvgv
+vnoremap <M-k> :move '<-2<cr>gvgv
 
-" Display an error message.
-function! s:Warn(msg) "{{{
-    echohl ErrorMsg
-    echomsg a:msg
-    echohl NONE
-endfunction "}}}
+" Use <tab> instead of <C-p> to complete
+inoremap <tab> <C-p>
 
-" Command ':Bclose' executes ':bd' to delete buffer in current window.
-" The window will show the alternate buffer (Ctrl-^) if it exists,
-" or the previous buffer (:bp), or a blank buffer if no previous.
-" Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
-" An optional argument can specify which buffer to close (name or number).
-function! s:Bclose(bang, buffer) "{{{
-    if empty(a:buffer)
-        let btarget = bufnr('%')
-    elseif a:buffer =~ '^\d\+$'
-        let btarget = bufnr(str2nr(a:buffer))
-    else
-        let btarget = bufnr(a:buffer)
-    endif
-    if btarget < 0
-        call s:Warn('No matching buffer for '.a:buffer)
-        return
-    endif
-    if empty(a:bang) && getbufvar(btarget, '&modified')
-        call s:Warn('No write since last change for buffer '.btarget.' (use :Bclose!)')
-        return
-    endif
-    " Numbers of windows that view target buffer which we will delete.
-    let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
-    if !g:bclose_multiple && len(wnums) > 1
-        call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
-        return
-    endif
-    let wcurrent = winnr()
-    for w in wnums
-        execute w.'wincmd w'
-        let prevbuf = bufnr('#')
-        if prevbuf > 0 && buflisted(prevbuf) && prevbuf != w
-            buffer #
-        else
-            bprevious
-        endif
-        if btarget == bufnr('%')
-            " Numbers of listed buffers which are not the target to be deleted.
-            let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != btarget')
-            " Listed, not target, and not displayed.
-            let bhidden = filter(copy(blisted), 'bufwinnr(v:val) < 0')
-            " Take the first buffer, if any (could be more intelligent).
-            let bjump = (bhidden + blisted + [-1])[0]
-            if bjump > 0
-                execute 'buffer '.bjump
-            else
-                execute 'enew'.a:bang
-            endif
-        endif
-    endfor
-    execute 'bdelete'.a:bang.' '.btarget
-    execute wcurrent.'wincmd w'
-endfunction "}}}
-command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
+" Stay at the same position when using = in visual mode
+vnoremap = =gv<esc>
 
-" Show numbering (absolute / relative)
-function! ToggleRelNumbering() "{{{
-    if &number
-        set relativenumber
-    else
-        set number
-    endif
-endfunction "}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => FileType settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-    " Makefile
-    autocmd FileType make setl noexpandtab
-
-    " C / C++
-    "autocmd BufNewFile,BufRead,BufEnter *.c setl filetype=c
-    "autocmd BufNewFile,BufRead,BufEnter *.h,*.cpp,*.hpp setl filetype=cpp
-
-    " JSON / JavaScript
-    autocmd BufNewFile,BufRead *.json set filetype=javascript
-
-    " Pascal
-    autocmd BufNewFile,BufRead *.pas,*.PAS set filetype=pascal
-
-    " Markdown
-    autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-    " Python
-    autocmd BufWritePre *.py :%s/\s\+$//e
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin customization
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TagList
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Compact_Format = 1
-let Tlist_File_Fold_Auto_Close = 0
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-nmap <F4> :Tlist<cr>
-imap <F4> <C-o><F4>
-
-" NerdTree
-map <silent> <F3> :NERDTreeToggle<cr>
-imap <silent> <F3> <C-o><F3><cr>
-
-" Fugitive
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gl :Glog<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gw :Gwrite<cr>
-
-" Gist
-let g:gist_detect_filetype = 1
-let g:gist_show_privates = 1
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins customization
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FuzzyFinder
 let g:fuf_modesDisable = []
 let g:fuf_mrufile_maxItem = 400
 let g:fuf_mrucmd_maxItem = 400
-nnoremap <silent> sj     :FufBuffer<cr>
-nnoremap <silent> sk     :FufFileWithCurrentBufferDir<cr>
-nnoremap <silent> sK     :FufFileWithFullCwd<cr>
-nnoremap <silent> s<C-k> :FufFile<cr>
-nnoremap <silent> sl     :FufCoverageFileChange<cr>
-nnoremap <silent> sL     :FufCoverageFileChange<cr>
-nnoremap <silent> s<C-l> :FufCoverageFileRegister<cr>
-nnoremap <silent> sd     :FufDirWithCurrentBufferDir<cr>
-nnoremap <silent> sD     :FufDirWithFullCwd<cr>
-nnoremap <silent> s<C-d> :FufDir<cr>
-nnoremap <silent> sn     :FufMruFile<cr>
-nnoremap <silent> sN     :FufMruFileInCwd<cr>
-nnoremap <silent> sm     :FufMruCmd<cr>
-nnoremap <silent> su     :FufBookmarkFile<cr>
-nnoremap <silent> s<C-u> :FufBookmarkFileAdd<cr>
-vnoremap <silent> s<C-u> :FufBookmarkFileAddAsSelectedText<cr>
-nnoremap <silent> si     :FufBookmarkDir<cr>
-nnoremap <silent> s<C-i> :FufBookmarkDirAdd<cr>
-nnoremap <silent> st     :FufTag<cr>
-nnoremap <silent> sT     :FufTag!<cr>
-nnoremap <silent> s<C-]> :FufTagWithCursorWord!<cr>
-nnoremap <silent> s,     :FufBufferTag<cr>
-nnoremap <silent> s<     :FufBufferTag!<cr>
-vnoremap <silent> s,     :FufBufferTagWithSelectedText!<cr>
-vnoremap <silent> s<     :FufBufferTagWithSelectedText<cr>
-nnoremap <silent> s}     :FufBufferTagWithCursorWord!<cr>
-nnoremap <silent> s.     :FufBufferTagAll<cr>
-nnoremap <silent> s>     :FufBufferTagAll!<cr>
-vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<cr>
-vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<cr>
-nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<cr>
-nnoremap <silent> sg     :FufTaggedFile<cr>
-nnoremap <silent> sG     :FufTaggedFile!<cr>
-nnoremap <silent> so     :FufJumpList<cr>
-nnoremap <silent> sp     :FufChangeList<cr>
-nnoremap <silent> sq     :FufQuickfix<cr>
-nnoremap <silent> sy     :FufLine<cr>
-nnoremap <silent> sh     :FufHelp<cr>
-nnoremap <silent> se     :FufEditDataFile<cr>
-nnoremap <silent> sr     :FufRenewCache<cr>
-nnoremap <silent> ss     :FufFile **/<cr>
-nnoremap s <nop>
-
-" Powerline
-set laststatus=2
-set noshowmode
-"let g:Powerline_symbols = 'unicode'
+nnoremap <silent> sj     :FufBuffer<CR>
+nnoremap <silent> sk     :FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> sK     :FufFileWithFullCwd<CR>
+nnoremap <silent> s<C-k> :FufFile<CR>
+nnoremap <silent> sl     :FufCoverageFileChange<CR>
+nnoremap <silent> sL     :FufCoverageFileChange<CR>
+nnoremap <silent> s<C-l> :FufCoverageFileRegister<CR>
+nnoremap <silent> sd     :FufDirWithCurrentBufferDir<CR>
+nnoremap <silent> sD     :FufDirWithFullCwd<CR>
+nnoremap <silent> s<C-d> :FufDir<CR>
+nnoremap <silent> sn     :FufMruFile<CR>
+nnoremap <silent> sN     :FufMruFileInCwd<CR>
+nnoremap <silent> sm     :FufMruCmd<CR>
+nnoremap <silent> su     :FufBookmarkFile<CR>
+nnoremap <silent> s<C-u> :FufBookmarkFileAdd<CR>
+vnoremap <silent> s<C-u> :FufBookmarkFileAddAsSelectedText<CR>
+nnoremap <silent> si     :FufBookmarkDir<CR>
+nnoremap <silent> s<C-i> :FufBookmarkDirAdd<CR>
+nnoremap <silent> st     :FufTag<CR>
+nnoremap <silent> sT     :FufTag!<CR>
+nnoremap <silent> s<C-]> :FufTagWithCursorWord!<CR>
+nnoremap <silent> s,     :FufBufferTag<CR>
+nnoremap <silent> s<     :FufBufferTag!<CR>
+vnoremap <silent> s,     :FufBufferTagWithSelectedText!<CR>
+vnoremap <silent> s<     :FufBufferTagWithSelectedText<CR>
+nnoremap <silent> s}     :FufBufferTagWithCursorWord!<CR>
+nnoremap <silent> s.     :FufBufferTagAll<CR>
+nnoremap <silent> s>     :FufBufferTagAll!<CR>
+vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<CR>
+vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<CR>
+nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<CR>
+nnoremap <silent> sg     :FufTaggedFile<CR>
+nnoremap <silent> sG     :FufTaggedFile!<CR>
+nnoremap <silent> so     :FufJumpList<CR>
+nnoremap <silent> sp     :FufChangeList<CR>
+nnoremap <silent> sq     :FufQuickfix<CR>
+nnoremap <silent> sy     :FufLine<CR>
+nnoremap <silent> sh     :FufHelp<CR>
+nnoremap <silent> se     :FufEditDataFile<CR>
+nnoremap <silent> sr     :FufRenewCache<CR>
