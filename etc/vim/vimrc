@@ -223,7 +223,7 @@ nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <leader><cr> :set nohlsearch<cr>
 
 " Quick search and replace
-nnoremap <leader>r :%s/\v<<C-r><C-w>>//gI<left><left><left>
+nnoremap <leader>s :%s/\v<<C-r><C-w>>//gI<left><left><left>
 " TODO enable this in visual mode
 
 " Transform Y to y$
