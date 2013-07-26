@@ -45,6 +45,9 @@ set noshowmode
 " Title is the name of the current file
 set title
 
+" Buffer become hidden when abandoned
+set hidden
+
 " Set 13 lines to the cursor - when moving vertically using j/k
 " 13 for the luck
 set scrolloff=13
@@ -126,7 +129,7 @@ set tags=./tags;/
 set omnifunc=syntaxcomplete#Complete
 
 " Set style of the completion
-set completeopt=menu,preview
+set completeopt=menu,longest
 
 " Expand path with local files
 set path+=/usr/local/include
@@ -260,11 +263,15 @@ inoremap <M-k> <esc>:move .-2<cr>gi
 vnoremap <M-j> :move '>+1<cr>gvgv
 vnoremap <M-k> :move '<-2<cr>gvgv
 
-" Use <tab> instead of <C-p> to complete
-inoremap <tab> <C-p>
+" Use <tab>/<S-tab> instead of <C-p>/<C-n> to complete
+inoremap <tab> <C-n>
+inoremap <S-tab> <C-p>
 
 " Stay at the same position when using = in visual mode
 vnoremap = =gv<esc>
+
+" Close current buffer
+nmap <leader>bd :bdelete<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins customization
@@ -313,3 +320,79 @@ nnoremap <silent> sy     :FufLine<CR>
 nnoremap <silent> sh     :FufHelp<CR>
 nnoremap <silent> se     :FufEditDataFile<CR>
 nnoremap <silent> sr     :FufRenewCache<CR>
+
+" YouCompleteMe
+" Jump to the definition
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<cr>
+"
+"" In case there is no file .ycm_extra_conf
+"let g:ycm_global_ycm_extra_conf = ''
+"
+"" Do not ask anymore if we want to use the ycm_extra_conf file
+"let g:ycm_confirm_extra_conf = 0
+"
+"" Use <C-Space> to invoke completion
+"let g:ycm_key_invoke_completion = '<C-space>'
+"
+"" Keys use to select the completion
+"let g:ycm_key_list_select_completion = ['<tab>', '<down>', '<enter>']
+"
+"" Keys use to get previous completion
+"let g:ycm_key_list_previous_completion = ['<S-tab>', '<up>']
+"
+"" Use tags to help the completion
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"
+"" Do not collect label from comments
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0
+"
+"" Let YCM change the updatetime
+"let g:ycm_allow_changing_updatetime = 1
+"
+"" File formats black list
+"let g:ycm_filetype_blacklist = {
+"            \ 'notes' : 1,
+"            \ 'markdown' : 1,
+"            \ 'text' : 1,
+"            \}
+"
+"" Minimal size of a word before YCM try to complete it
+"let g:ycm_min_num_of_chars_for_completion = 2
+
+" clang_complete
+" Set the auto selection
+let g:clang_auto_select = 0
+
+" Automatically complete after ->, ., ::
+let g:clang_complete_auto = 0
+
+" Show error in quickfix window
+let g:clang_cimplete_copen = 1
+
+" Higlight the warnings and errors
+let g:clang_hl_errors = 1
+
+" Pariodically update the quickfix window (better to use
+" g:ClangUpdateQuickFix())
+let g:clang_periodic_quicfix = 0
+
+" Use some snippets magic
+let g:clang_snippets = 1
+
+" Snippets engine
+let g:clang_snippets_engine = "clang_complete"
+
+" Close the preview window after a completion
+let g:clang_close_preview = 0
+
+" Use some default option (can be change locally with a .clang_complete file)
+let g:clang_user_options = '-std=c++11'
+
+" Use libclang instead of clang/clang++
+let g:clang_use_library = 0
+
+" Sort of results (alpha, priority, none)
+let g:clang_sort_algo = "priority"
+
+" Key used to jump to declaration
+let g:clang_jumpto_declaration_key = "<C-d>"
