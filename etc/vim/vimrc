@@ -263,10 +263,6 @@ inoremap <M-k> <esc>:move .-2<cr>gi
 vnoremap <M-j> :move '>+1<cr>gvgv
 vnoremap <M-k> :move '<-2<cr>gvgv
 
-" Use <tab>/<S-tab> instead of <C-p>/<C-n> to complete
-inoremap <tab> <C-n>
-inoremap <S-tab> <C-p>
-
 " Stay at the same position when using = in visual mode
 vnoremap = =gv<esc>
 
