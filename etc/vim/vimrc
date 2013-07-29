@@ -207,23 +207,23 @@ nnoremap <left>  <nop>
 nnoremap <right> <nop>
 
 " Shortcut to save
-nnoremap <leader>w :write<cr>
+nnoremap <silent> <leader>w :write<cr>
 
 " Close current file
-nmap <leader>q :quit<cr>
+nmap <silent> <leader>q :quit<cr>
 
 " Run ls in shell
-nmap <leader>ls :!ls<cr>
+nmap <silent> <leader>ls :!ls<cr>
 
 " Edit/Source vimrc
-nmap <leader>co :edit $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
+nmap <silent> <leader>co :edit $MYVIMRC<cr>
+nmap <silent> <leader>so :source $MYVIMRC<cr>
 
 " Switch CWD to the directory of the current buffer
-nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nmap <silent> <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Disable highlight
-nmap <leader><cr> :set nohlsearch<cr>
+nmap <silent> <leader><cr> :set nohlsearch<cr>
 
 " Quick search and replace
 nnoremap <leader>s :%s/\v<<C-r><C-w>>//gI<left><left><left>
@@ -249,25 +249,25 @@ nmap 0 ^
 nmap <tab> ==
 
 " Quick make command
-nmap <leader>m :make<cr>
+nmap <silent> <leader>m :make<cr>
 
 " Exchange ' `
 nnoremap ' `
 nnoremap ` '
 
 " Move a line of text using Alt+[jk]
-nnoremap <M-j> mz:move .+1<cr>`z
-nnoremap <M-k> mz:move .-2<cr>`z
-inoremap <M-j> <esc>:move .+1<cr>gi
-inoremap <M-k> <esc>:move .-2<cr>gi
-vnoremap <M-j> :move '>+1<cr>gvgv
-vnoremap <M-k> :move '<-2<cr>gvgv
+nnoremap <silent> <M-j> mz:move .+1<cr>`z
+nnoremap <silent> <M-k> mz:move .-2<cr>`z
+inoremap <silent> <M-j> <esc>:move .+1<cr>gi
+inoremap <silent> <M-k> <esc>:move .-2<cr>gi
+vnoremap <silent> <M-j> :move '>+1<cr>gvgv
+vnoremap <silent> <M-k> :move '<-2<cr>gvgv
 
 " Stay at the same position when using = in visual mode
 vnoremap = =gv<esc>
 
 " Close current buffer
-nmap <leader>bd :bdelete<cr>
+nmap <silent> <leader>bd :bdelete<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins customization
