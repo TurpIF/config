@@ -22,7 +22,7 @@ let g:clang_use_library = 1
 nmap <buffer> <C-F12> :!ctags -R --sort=yes --c++-kinds=+px-d --fields=+iaS --extra=+q .<cr>
 
 " Fswitch
-nmap <leader>of :FSHere<cr>
+nmap <silent> <leader>of :FSHere<cr>
 
 " OmniCppComplete plugin
 let OmniCpp_DefaultNamespaces   = []
