@@ -279,7 +279,7 @@ vnoremap = =gv<esc>
 nmap <silent> <leader>bd :bdelete<cr>
 
 " Use make in vim
-nmap <silent> <leader>co :cwindow<cr>
+nmap <silent> <leader>cw :cwindow<cr>
 nmap <silent> <leader>cn :cn<cr>
 nmap <silent> <leader>cp :cp<cr>
 
