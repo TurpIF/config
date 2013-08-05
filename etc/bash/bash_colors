@@ -25,6 +25,12 @@ BLUE="\[\e[1;34m\]"
 PURPLE="\[\e[1;35m\]"
 CYAN="\[\e[1;36m\]"
 
-# Prompt format
-PS1=${BLUE}'\u'${NORMAL}${YELLOW}@${NORMAL}${RED}'\h'${NORMAL}${YELLOW}${NORMAL}${YELLOW}${NORMAL}${BLUE}:${NORMAL}${GREEN}'\w'${NORMAL}${PURPLE}'$(__git_ps1 "|%s")'"${NORMAL}${BLUE} "'\$'"${NORMAL} "
-PS2="${BLUE}>${NORMAL} "
+if $use_personnal_prompt; then
+    # Prompt format
+    if $use_git_prompt; then
+        PS1=${BLUE}'\u'${NORMAL}${YELLOW}@${NORMAL}${RED}'\h'${NORMAL}${YELLOW}${NORMAL}${YELLOW}${NORMAL}${BLUE}:${NORMAL}${GREEN}'\w'${NORMAL}${PURPLE}'$(__git_ps1 "|%s")'"${NORMAL}${BLUE} "'\$'"${NORMAL} "
+    else
+        PS1=${BLUE}'\u'${NORMAL}${YELLOW}@${NORMAL}${RED}'\h'${NORMAL}${YELLOW}${NORMAL}${YELLOW}${NORMAL}${BLUE}:${NORMAL}${GREEN}'\w'"${NORMAL}${BLUE} "'\$'"${NORMAL} "
+    fi
+    PS2="${BLUE}>${NORMAL} "
+fi

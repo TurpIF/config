@@ -38,6 +38,15 @@
 				"name": "last_pipe_status"
 			},
 			{
+				"module": "powerline.segments.my",
+				"name": "git_status_line",
+                "args": {
+                    "head": " ",
+                    "detached": "➦ ",
+                    "dirty": " ±"
+                }
+			},
+			{
                 "name": "date",
                 "args": {
                     "format": "%H:%M:%S",

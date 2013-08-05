@@ -87,10 +87,28 @@ export BASHRTP="$HOME/.bash"
 # Global scripts
 call /etc/bashrc /etc/bash_completion
 
-# Git prompt
-call /usr/local/git/contrib/completion/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=true
-call /opt/local/etc/bash_completion
+# Prompt
+powerline="~./bundle/powerline/powerline/bindings/bash/powerline.sh"
+use_personnal_prompt=true
+use_git_prompt=false
+if [ -e "$powerline" ]; then
+    # Use powerline for the shell prompt
+    . $powerline && use_personnal_prompt=false
+else
+    git_prompt="/usr/local/git/contrib/completion/git-completion.bash"
+    if [ -e "$git_prompt" ]; then
+        # Git prompt
+        call "$git_prompt"
+        GIT_PS1_SHOWDIRTYSTATE=true
+        use_git_prompt=true
+    fi
+fi
+
+bash_complete="/opt/local/etc/bash_completion"
+if [ -e "$bash_complete" ]; then
+    # Bash completion
+    call $bash_complete
+fi
 
 # Custom scripts
 call $BASHRTP/bash_profile $BASHRTP/bash_colors $BASHRTP/bash_aliases
@@ -102,6 +120,3 @@ mkcd()
     dir="$*";
     mkdir -p "$dir" && cd "$dir";
 }
-
-# Use powerline for the shell prompt
-. ~/.powerline/powerline/bindings/bash/powerline.sh
