@@ -16,21 +16,29 @@ fi
 
 # Colors
 NORMAL="\[\033[0m\]"
-BLACK="\[\e[1;30m\]"
-WHITE="\[\e[1;37m\]"
-RED="\[\e[1;31m\]"
-GREEN="\[\e[1;32m\]"
-YELLOW="\[\e[1;33m\]"
-BLUE="\[\e[1;34m\]"
-PURPLE="\[\e[1;35m\]"
-CYAN="\[\e[1;36m\]"
+BLACK="\[\e[0;30m\]"
+WHITE="\[\e[0;37m\]"
+RED="\[\e[0;31m\]"
+GREEN="\[\e[0;32m\]"
+YELLOW="\[\e[0;33m\]"
+BLUE="\[\e[0;34m\]"
+PURPLE="\[\e[0;35m\]"
+CYAN="\[\e[0;36m\]"
+BBLACK="\[\e[1;30m\]"
+BWHITE="\[\e[1;37m\]"
+BRED="\[\e[1;31m\]"
+BGREEN="\[\e[1;32m\]"
+BYELLOW="\[\e[1;33m\]"
+BBLUE="\[\e[1;34m\]"
+BPURPLE="\[\e[1;35m\]"
+BCYAN="\[\e[1;36m\]"
 
 if $use_personnal_prompt; then
     # Prompt format
     if $use_git_prompt; then
-        PS1=${BLUE}'\u'${NORMAL}${YELLOW}@${NORMAL}${RED}'\h'${NORMAL}${YELLOW}${NORMAL}${YELLOW}${NORMAL}${BLUE}:${NORMAL}${GREEN}'\w'${NORMAL}${PURPLE}'$(__git_ps1 "|%s")'"${NORMAL}${BLUE} "'\$'"${NORMAL} "
+        PS1=${BBLUE}'\u'${NORMAL}${BYELLOW}@${NORMAL}${BRED}'\h'${NORMAL}${BBLUE}:${NORMAL}${BGREEN}'\w'${NORMAL}${BPURPLE}'$(__git_ps1 "|%s")'"${NORMAL}${BBLUE} "'\$'"${NORMAL} "
     else
-        PS1=${BLUE}'\u'${NORMAL}${YELLOW}@${NORMAL}${RED}'\h'${NORMAL}${YELLOW}${NORMAL}${YELLOW}${NORMAL}${BLUE}:${NORMAL}${GREEN}'\w'"${NORMAL}${BLUE} "'\$'"${NORMAL} "
+        PS1=${BBLUE}'\u'${NORMAL}${BYELLOW}@${NORMAL}${BRED}'\h'${NORMAL}${BBLUE}:${NORMAL}${BGREEN}'\w'"${NORMAL}${BBLUE} "'\$'"${NORMAL} "
     fi
     PS2="${BLUE}>${NORMAL} "
 fi
