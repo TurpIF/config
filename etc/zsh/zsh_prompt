@@ -4,5 +4,24 @@
 #
 # vim: set ft=zsh
 
+# Colors
+autoload -U colors
+colors
+Normal="%{$reset_color%}"
+Red="%{$fg_bold[red]%}"
+Green="%{$fg_bold[green]%}"
+Yellow="%{$fg_bold[yellow]%}"
+Blue="%{$fg_bold[blue]%}"
+Purple="%{$fg_bold[purple]%}"
+Cyan="%{$fg_bold[cyan]%}"
+
+user="${Blue}%n${Normal}"
+host="${Red}%m${Normal}"
+cwd="${Green}%~${Normal}"
+end="${Blue}%#${Normal}"
+
+PS1="${user}${Yellow}@${Normal}${host}${Blue}:${Normal}${cwd} ${end} "
+PS2="${Blue}>${Normal} "
+
 # Use the plugin powerline for the prompt
-. ~/.bundle/zsh/zsh-powerline/powerline.zsh
+# . ~/.bundle/zsh/zsh-powerline/powerline.zsh
