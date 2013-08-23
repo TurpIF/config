@@ -140,11 +140,12 @@ set path+=/usr/local/include
 " Set the background
 set background=dark
 
-" 256 colors term
-set t_Co=256
+" Determine number of colors
+let s:nb_colors = system('tput colors')
+execute 'set t_Co=' . s:nb_colors
 
 " Colorscheme
-let g:solarized_termcolors=256
+let g:solarized_termcolors=s:nb_colors
 colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -429,3 +430,6 @@ let g:ctrlp_user_command = {
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
+
+" LanguageTool
+let g:languagetool_jar='~/logiciel/LanguageTool-2.2/languagetool-commandline.jar'

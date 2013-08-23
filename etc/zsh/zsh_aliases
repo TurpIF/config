@@ -53,6 +53,7 @@ alias lla="ls -la"
 alias lr="ls -r"
 
 # Shortcuts for software
+alias vi="vim"
 alias v="vim"
 alias g="gvim -f --remote-silent"
 alias google="google-chrome --enable-plugins"

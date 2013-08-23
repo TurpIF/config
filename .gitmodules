@@ -97,3 +97,6 @@
 [submodule "bundle/vim/tcomment_vim"]
 	path = bundle/vim/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/vim/LanguageTool"]
+	path = bundle/vim/LanguageTool
+	url = https://github.com/vim-scripts/LanguageTool.git
