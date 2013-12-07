@@ -173,13 +173,13 @@ set fileformats=unix,dos
 " Indentation option
 set autoindent
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 
 " Tabulation option
 set expandtab
 set smarttab
-set softtabstop=4
-set tabstop=8
+set softtabstop=2
+set tabstop=4
 
 " Replace indentation, eol and other non visible char
 set list listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮,eol:¤
