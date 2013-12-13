@@ -284,6 +284,9 @@ nmap <silent> <leader>cw :cwindow<cr>
 nmap <silent> <leader>cn :cn<cr>
 nmap <silent> <leader>cp :cp<cr>
 
+" Very annoying thing
+imap ê <C-v>ê
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins customization
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
