@@ -10,7 +10,7 @@ email = pierre.turpin@insa-lyon.fr
 default = simple
 [credential]
 	helper = cache --timeout=3600
-[pull]
-	rebase = true
+; [pull]
+; 	rebase = true
 [merge]
 	tool = vimdiff

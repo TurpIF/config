@@ -239,6 +239,11 @@ nmap <silent> <leader><cr> :set nohlsearch<cr>
 nnoremap <leader>s :%s/\v<<C-r><C-w>>//gI<left><left><left>
 " TODO enable this in visual mode
 
+" Replace the char under the cursor by another on the current line (usefull
+" when working on x, y, z line
+nnoremap <leader>l vy:s/<C-r>"//gI<left><left><left>
+vnoremap <leader>l y:s/<C-r>"//gI<left><left><left>
+
 " Transform Y to y$
 nmap Y y$
 
