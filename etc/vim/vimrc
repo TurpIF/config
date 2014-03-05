@@ -305,9 +305,6 @@ imap ê <C-v>ê
 " NERDTree
 nnoremap <silent> <f2> :NERDTreeToggle<cr>
 
-" Taglist
-nnoremap <silent> <f3> :TlistToggle<cr>
-
 " Ctrl+P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'

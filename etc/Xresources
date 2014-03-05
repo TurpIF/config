@@ -35,7 +35,7 @@ xterm*bellIsUrgent: false
 xterm*borderWidth: 0
 
 ! Allow the cursor to blink
-xterm*cursorBlink: true
+xterm*cursorBlink: false
 
 ! Colorscheme
 xterm*background: #1B1B1B
