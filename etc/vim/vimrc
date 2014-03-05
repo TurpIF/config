@@ -259,7 +259,7 @@ nnoremap <C-l> <C-w>l
 
 " Move rapidly between opened tabs
 nnoremap <silent> <C-t> :tabnew<cr>
-nnoremap <silent> <C-w> :tabclose<cr>
+nnoremap <silent> <S-t> :tabclose<cr>
 " Little hack with XTerm
 nnoremap <silent> [27;5;9 :tabnext<cr>
 nnoremap <silent> [27;6;9 :tabprevious<cr>

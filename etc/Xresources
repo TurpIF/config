@@ -11,10 +11,10 @@ xterm*locale: true
 
 ! Scroll options
 xterm*saveLines: 8192
-xterm*jumpScroll: false
+xterm*jumpScroll: true
 xterm*multiScroll: false
 xterm*fastScroll: false
-xterm*scrollTtyOutput: true
+xterm*scrollTtyOutput: false
 xterm*scrollKey: true
 
 ! Scrollbar options
@@ -40,7 +40,6 @@ xterm*cursorBlink: true
 ! Colorscheme
 xterm*background: #1B1B1B
 xterm*foreground: #AAAAAA
-
 ! black
 xterm*color0  : #2E3436
 xterm*color8  : #555753
@@ -67,7 +66,9 @@ xterm*color7  : #D3D7CF
 xterm*color15 : #EEEEEC
 
 ! Font
-xterm*faceName: Liberation Mono for Powerline
+! xterm*faceName: Source Code Pro for Powerline
+! xterm*faceName: DejaVu Sans Mono for Powerline
+xterm*faceName: Meslo LG S for Powerline
 xterm*faceSize: 10
 
 ! Key translation

@@ -4,9 +4,6 @@
 #
 # vim: set ft=zsh
 
-# Prefer french and use UTF-8
-export LC_ALL="fr_FR.UTF8"
-export LANG="fr_FR"
 export EDITOR="vim"
 
 # Colors
