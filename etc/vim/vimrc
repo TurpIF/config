@@ -87,15 +87,15 @@ set mouse=
 set mousehide
 
 " Fix for terminal enabling ALT key mappings
-if !has("gui_running")
-    let s:c = "a"
-    while s:c <= "z"
-        execute "set <A-" . s:c . ">=\e" . s:c
-        execute "imap \e" . s:c . " <A-" . s:c . ">"
-        let s:c = nr2char(1 + char2nr(s:c))
-    endwhile
-    set timeout ttimeoutlen=50
-endif
+" if !has("gui_running")
+"     let s:c = "a"
+"     while s:c <= "z"
+"         execute "set <A-" . s:c . ">=\e" . s:c
+"         execute "imap \e" . s:c . " <A-" . s:c . ">"
+"         let s:c = nr2char(1 + char2nr(s:c))
+"     endwhile
+"     set timeout ttimeoutlen=50
+" endif
 
 " Enable magic for regular exp
 set magic
@@ -260,8 +260,9 @@ nnoremap <C-l> <C-w>l
 " Move rapidly between opened tabs
 nnoremap <silent> <C-t> :tabnew<cr>
 nnoremap <silent> <C-w> :tabclose<cr>
-nnoremap <silent> <C-tab> :tabnext<cr>
-nnoremap <silent> <C-S-tab> :tabprevious<cr>
+" Little hack with XTerm
+nnoremap <silent> [27;5;9 :tabnext<cr>
+nnoremap <silent> [27;6;9 :tabprevious<cr>
 
 " Remap vim 0 to first non-blank char
 nmap 0 ^

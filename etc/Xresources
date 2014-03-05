@@ -11,10 +11,10 @@ xterm*locale: true
 
 ! Scroll options
 xterm*saveLines: 8192
-xterm*jumpScroll: true
+xterm*jumpScroll: false
 xterm*multiScroll: false
 xterm*fastScroll: false
-xterm*scrollTtyOutput: false
+xterm*scrollTtyOutput: true
 xterm*scrollKey: true
 
 ! Scrollbar options
@@ -24,9 +24,6 @@ xterm*scrollBarBorder: 0
 
 ! Size of the window
 xterm*VT100.geometry: 80x32
-
-! Use the clipboard of the system by selection
-xterm*selectToClipboard: true
 
 ! A double click selection the whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
@@ -72,3 +69,12 @@ xterm*color15 : #EEEEEC
 ! Font
 xterm*faceName: Liberation Mono for Powerline
 xterm*faceSize: 10
+
+! Key translation
+xterm*selectToClipboard: true
+xterm*vt100.translations: #override \
+  Ctrl Shift <KeyPress> C:    select-end(PRIMARY,CLIPBOARD,CUT_BUFFER0) \n\
+  Ctrl Shift <KeyPress> V:    insert-selection(CLIPBOARD, CUT_BUFFER0, PRIMARY) \n\
+  Alt <KeyPress> F11:         fullscreen(toggle) \n\
+  Ctrl ~Shift <KeyPress>Tab:  string(0x1b) string("[27;5;9~") \n\
+  Ctrl Shift <KeyPress>Tab:   string(0x1b) string("[27;6;9~") \n
