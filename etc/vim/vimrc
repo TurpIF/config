@@ -62,7 +62,7 @@ set wildchar=<TAB>
 set wildmode=list:longest
 
 " Ignore compiled files
-set wildignore=*.o,*.pyc,*~
+set wildignore=*.o,*.pyc,*~,*/.git/*,*/.svn/*
 
 " Always show current position
 set ruler
@@ -257,6 +257,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Move rapidly between opened tabs
+nnoremap <silent> <C-t> :tabnew<cr>
+nnoremap <silent> <C-w> :tabclose<cr>
+nnoremap <silent> <C-tab> :tabnext<cr>
+nnoremap <silent> <C-S-tab> :tabprevious<cr>
+
 " Remap vim 0 to first non-blank char
 nmap 0 ^
 
@@ -295,127 +301,6 @@ imap ê <C-v>ê
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins customization
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FuzzyFinder
-" let g:fuf_modesDisable = []
-" let g:fuf_mrufile_maxItem = 400
-" let g:fuf_mrucmd_maxItem = 400
-" nnoremap <silent> sj     :FufBuffer<CR>
-" nnoremap <silent> sk     :FufFileWithCurrentBufferDir<CR>
-" nnoremap <silent> sK     :FufFileWithFullCwd<CR>
-" nnoremap <silent> s<C-k> :FufFile<CR>
-" nnoremap <silent> sl     :FufCoverageFileChange<CR>
-" nnoremap <silent> sL     :FufCoverageFileChange<CR>
-" nnoremap <silent> s<C-l> :FufCoverageFileRegister<CR>
-" nnoremap <silent> sd     :FufDirWithCurrentBufferDir<CR>
-" nnoremap <silent> sD     :FufDirWithFullCwd<CR>
-" nnoremap <silent> s<C-d> :FufDir<CR>
-" nnoremap <silent> sn     :FufMruFile<CR>
-" nnoremap <silent> sN     :FufMruFileInCwd<CR>
-" nnoremap <silent> sm     :FufMruCmd<CR>
-" nnoremap <silent> su     :FufBookmarkFile<CR>
-" nnoremap <silent> s<C-u> :FufBookmarkFileAdd<CR>
-" vnoremap <silent> s<C-u> :FufBookmarkFileAddAsSelectedText<CR>
-" nnoremap <silent> si     :FufBookmarkDir<CR>
-" nnoremap <silent> s<C-i> :FufBookmarkDirAdd<CR>
-" nnoremap <silent> st     :FufTag<CR>
-" nnoremap <silent> sT     :FufTag!<CR>
-" nnoremap <silent> s<C-]> :FufTagWithCursorWord!<CR>
-" nnoremap <silent> s,     :FufBufferTag<CR>
-" nnoremap <silent> s<     :FufBufferTag!<CR>
-" vnoremap <silent> s,     :FufBufferTagWithSelectedText!<CR>
-" vnoremap <silent> s<     :FufBufferTagWithSelectedText<CR>
-" nnoremap <silent> s}     :FufBufferTagWithCursorWord!<CR>
-" nnoremap <silent> s.     :FufBufferTagAll<CR>
-" nnoremap <silent> s>     :FufBufferTagAll!<CR>
-" vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<CR>
-" vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<CR>
-" nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<CR>
-" nnoremap <silent> sg     :FufTaggedFile<CR>
-" nnoremap <silent> sG     :FufTaggedFile!<CR>
-" nnoremap <silent> so     :FufJumpList<CR>
-" nnoremap <silent> sp     :FufChangeList<CR>
-" nnoremap <silent> sq     :FufQuickfix<CR>
-" nnoremap <silent> sy     :FufLine<CR>
-" nnoremap <silent> sh     :FufHelp<CR>
-" nnoremap <silent> se     :FufEditDataFile<CR>
-" nnoremap <silent> sr     :FufRenewCache<CR>
-
-" YouCompleteMe
-" Jump to the definition
-"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<cr>
-"
-"" In case there is no file .ycm_extra_conf
-"let g:ycm_global_ycm_extra_conf = ''
-"
-"" Do not ask anymore if we want to use the ycm_extra_conf file
-"let g:ycm_confirm_extra_conf = 0
-"
-"" Use <C-Space> to invoke completion
-"let g:ycm_key_invoke_completion = '<C-space>'
-"
-"" Keys use to select the completion
-"let g:ycm_key_list_select_completion = ['<tab>', '<down>', '<enter>']
-"
-"" Keys use to get previous completion
-"let g:ycm_key_list_previous_completion = ['<S-tab>', '<up>']
-"
-"" Use tags to help the completion
-"let g:ycm_collect_identifiers_from_tags_files = 1
-"
-"" Do not collect label from comments
-"let g:ycm_collect_identifiers_from_comments_and_strings = 0
-"
-"" Let YCM change the updatetime
-"let g:ycm_allow_changing_updatetime = 1
-"
-"" File formats black list
-"let g:ycm_filetype_blacklist = {
-"            \ 'notes' : 1,
-"            \ 'markdown' : 1,
-"            \ 'text' : 1,
-"            \}
-"
-"" Minimal size of a word before YCM try to complete it
-"let g:ycm_min_num_of_chars_for_completion = 2
-
-"" clang_complete
-"" Set the auto selection
-"let g:clang_auto_select = 0
-"
-"" Automatically complete after ->, ., ::
-"let g:clang_complete_auto = 0
-"
-"" Show error in quickfix window
-"let g:clang_cimplete_copen = 1
-"
-"" Higlight the warnings and errors
-"let g:clang_hl_errors = 1
-"
-"" Pariodically update the quickfix window (better to use
-"" g:ClangUpdateQuickFix())
-"let g:clang_periodic_quicfix = 0
-"
-"" Use some snippets magic
-"let g:clang_snippets = 1
-"
-"" Snippets engine
-"let g:clang_snippets_engine = "clang_complete"
-"
-"" Close the preview window after a completion
-"let g:clang_close_preview = 0
-"
-"" Use some default option (can be change locally with a .clang_complete file)
-"let g:clang_user_options = '-std=c++11'
-"
-"" Use libclang instead of clang/clang++
-"let g:clang_use_library = 0
-"
-"" Sort of results (alpha, priority, none)
-"let g:clang_sort_algo = "priority"
-"
-"" Key used to jump to declaration
-"let g:clang_jumpto_declaration_key = "<C-d>"
-
 " NERDTree
 nnoremap <silent> <f2> :NERDTreeToggle<cr>
 
@@ -425,19 +310,24 @@ nnoremap <silent> <f3> :TlistToggle<cr>
 " Ctrl+P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'file': '\v\.(exe|so|dll|pyc|o)$',
             \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
             \ }
+let g:ctrlp_max_files = 1000
+let g:ctrlp_max_depth = 40
 let g:ctrlp_user_command = {
             \ 'types': {
             \ 1: ['.git', 'cd %s && git ls-files'],
-            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '3vjr'
 
 " LanguageTool
 let g:languagetool_jar='~/logiciel/LanguageTool-2.2/languagetool-commandline.jar'
