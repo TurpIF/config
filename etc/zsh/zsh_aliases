@@ -15,14 +15,8 @@ alias df="df -h"
 alias du="du -h"
 
 # Package managing
-alias install="sudo apt-get install"
-alias remove="sudo apt-get remove"
-alias autoremove="sudo apt-get autoremove"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade --show-upgraded"
-alias clean="sudo apt-get clean"
-alias search="sudo apt-cache search"
-alias uua="sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get autoremove -y"
+# Shut the fuck up debian
+# Arch is so cool with pacman and yaourt
 
 # Navigation
 alias ..="cd ../"
@@ -57,4 +51,10 @@ alias vi="vim"
 alias v="vim"
 alias g="gvim -f --remote-silent"
 alias google="google-chrome --enable-plugins"
+alias py2="python2"
+alias py3="python3"
+alias ipy2="ipython2"
+alias ipy3="ipython3"
+alias py="py2"
+alias ipy="ipy2"
 
