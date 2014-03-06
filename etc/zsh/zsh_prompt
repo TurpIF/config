@@ -7,21 +7,38 @@
 # Colors
 autoload -U colors
 colors
-Normal="%{$reset_color%}"
-Red="%{$fg_bold[red]%}"
-Green="%{$fg_bold[green]%}"
-Yellow="%{$fg_bold[yellow]%}"
-Blue="%{$fg_bold[blue]%}"
-Purple="%{$fg_bold[purple]%}"
-Cyan="%{$fg_bold[cyan]%}"
 
-user="${Blue}%n${Normal}"
-host="${Red}%m${Normal}"
-cwd="${Green}%~${Normal}"
-end="${Blue}%#${Normal}"
+local Normal="%{$reset_color%}"
+local Red="%{$fg_bold[red]%}"
+local Green="%{$fg_bold[green]%}"
+local Yellow="%{$fg_bold[yellow]%}"
+local Blue="%{$fg_bold[blue]%}"
+local Magenta="%{$fg_bold[magenta]%}"
+local Cyan="%{$fg_bold[cyan]%}"
 
-PS1="${user}${Yellow}@${Normal}${host}${Blue}:${Normal}${cwd} ${end} "
-PS2="${Blue}>${Normal} "
+setopt promptsubst
 
+function collapse_pwd {
+    echo $(pwd | sed -e "s,^$HOME,~,")
+}
+
+local user="${Blue}%n${Normal}"
+local host="${Magenta}%m${Normal}"
+local cwd='${Yellow}$(collapse_pwd)${Normal}'
+local end="${Cyan} >>${Normal}"
+local exitcode="%(?..${Red}(%?%)${Normal})"
+
+local remote=""
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  remote=true
+fi
+
+# PS1="${user}${Yellow}@${Normal}${host}${Blue}:${Normal}${cwd} ${end} "
+# PS1="${Normal}${cwd} ${end} "
+local SSH_PROMPT="${Normal}${host}${Blue}§${Normal}${cwd}${end} "
+PROMPT="${Normal}${cwd}${end} "
+[ $remote ] && PROMPT=$SSH_PROMPT
+PS2="${Cyan}>${Normal} "
+RPROMPT="${Normal}${exitcode}"
 # Use the plugin powerline for the prompt
 # . ~/.bundle/zsh/zsh-powerline/powerline.zsh
