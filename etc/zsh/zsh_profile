@@ -25,4 +25,4 @@ if which ruby >/dev/null && which gem >/dev/null; then
 fi
 
 # Local bin dir
-PATH:"$HOME/.bin:$PATH"
+PATH="$HOME/.bin:$PATH"
