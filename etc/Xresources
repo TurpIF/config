@@ -82,6 +82,9 @@ xterm*vt100.translations: #override \
 
 !-- URxvt configuration
 
+! Fix weird blinking problem ??
+! URxvt*buffered: false
+
 ! Start as a login shell
 URxvt*loginShell: true
 
