@@ -85,6 +85,9 @@ xterm*vt100.translations: #override \
 ! Start as a login shell
 URxvt*loginShell: true
 
+! Icon
+URxvt*iconFile: /usr/share/icons/Faenza/apps/32/xterm.png
+
 ! Font
 URxvt*font: xft:Meslo LG S for Powerline:pixelsize=13:antialias=true:hinting=true
 URxvt*boldFont: xft:Meslo LG S for Powerline:bold:pixelsize=13:antialias=true:hinting=true
