@@ -10,12 +10,12 @@ xterm*locale: true
 ! xterm*metaSendsEscape: true
 
 ! Scroll options
-xterm*saveLines: 8192
-xterm*jumpScroll: true
-xterm*multiScroll: false
-xterm*fastScroll: false
-xterm*scrollTtyOutput: false
-xterm*scrollKey: true
+xterm*saveLines:        8192
+xterm*jumpScroll:       true
+xterm*multiScroll:      false
+xterm*fastScroll:       false
+xterm*scrollTtyOutput:  false
+xterm*scrollKey:        true
 
 ! Scrollbar options
 xterm*scrollBar: false
@@ -92,20 +92,20 @@ URxvt*loginShell: true
 URxvt*iconFile: /usr/share/icons/Faenza/apps/32/xterm.png
 
 ! Font
-URxvt*font: xft:Meslo LG S for Powerline:pixelsize=13:antialias=true:hinting=true
+URxvt*font:     xft:Meslo LG S for Powerline:pixelsize=13:antialias=true:hinting=true
 URxvt*boldFont: xft:Meslo LG S for Powerline:bold:pixelsize=13:antialias=true:hinting=true
 
 ! Scrollbar options
-URxvt*scrollBar: true
-URxvt*scrollBar_right: true
-URxvt*scrollstyle: plain
-URxvt*scrollColor: #777777
+URxvt*scrollBar:        true
+URxvt*scrollBar_right:  true
+URxvt*scrollstyle:      plain
+URxvt*scrollColor:      #777777
 
 ! Save a certain amount of lines to scroll up
-URxvt*saveLines: 8192
-URxvt*scrollTtyKeypress: true
-URxvt*scrollTtyOutput: false
-URxvt*scrollWithBuffer: false
+URxvt*saveLines:          8192
+URxvt*scrollTtyKeypress:  true
+URxvt*scrollTtyOutput:    false
+URxvt*scrollWithBuffer:   false
 
 ! Transparency
 URxvt*transparent: false
