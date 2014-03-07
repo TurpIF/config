@@ -1,3 +1,6 @@
+[core]
+editor = /urb/bin/vim
+
 [alias]
 ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -15,6 +18,8 @@ la = "!git config -l | grep alias | cut -c 7-"
 st = status -s
 cl = clone
 ci = commit
+cm = commit -m
+ca = commit --amend
 co = checkout
 br = branch
 r = reset
@@ -29,10 +34,35 @@ name = TurpIF
 email = pierre.turpin@insa-lyon.fr
 
 [push]
-default = simple
+default = upstream
+
 [credential]
-	helper = cache --timeout=3600
-; [pull]
-; 	rebase = true
+helper = cache --timeout=3600
+
+[pull]
+; rebase = true
+default = current
+
 [merge]
-	tool = vimdiff
+tool = vimdiff
+
+[color]
+branch = auto
+status = auto
+diff = auto
+
+[color "branch"]
+current = red reverse
+local = blue
+remote = green
+
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+
+[color "status"]
+added = yellow
+changed = green
+untracked = cyan
