@@ -17,3 +17,12 @@ if [ -x /usr/bin/dircolors ]; then
     fi
 fi
 
+# Add directories into the PATH
+
+# Gem
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+# Local bin dir
+PATH:"$HOME/.bin:$PATH"
