@@ -38,7 +38,7 @@ fi
 local SSH_PROMPT="${Normal}${host}${Blue}§${Normal}${cwd}${end} "
 PROMPT="${Normal}${cwd}${end} "
 [ $remote ] && PROMPT=$SSH_PROMPT
-PS2="${Cyan}>${Normal} "
+PS2="${Cyan}>>>${Normal} "
 RPROMPT="${Normal}${exitcode}"
 # Use the plugin powerline for the prompt
 # . ~/.bundle/zsh/zsh-powerline/powerline.zsh
