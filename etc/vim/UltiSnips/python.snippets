@@ -1,0 +1,110 @@
+snippet #!
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+${0}
+endsnippet
+
+snippet imp
+import ${1:module}
+${0}
+endsnippet
+
+snippet from
+from ${1:package} import ${2:module}
+${2}
+endsnippet
+
+snippet while
+while ${1:condition}:
+    ${0:pass}
+endsnippet
+
+snippet with
+with ${1:expr} as ${2:var}:
+    ${0:pass}
+endsnippet
+
+snippet for
+for ${1:item} in ${2:items}:
+    ${0:pass}
+endsnippet
+
+snippet if
+if ${1:cond}:
+    ${0:pass}
+endsnippet
+
+snippet else
+else:
+    ${0:pass}
+endsnippet
+
+snippet elif
+elif ${1:cond}:
+    ${0:pass}
+endsnippet
+
+snippet def
+def ${1:fname}(${2:args}):
+    """
+    ${3:docstring for $1}
+    """
+    ${0:pass}
+endsnippet
+
+snippet defm
+def ${1:fname}(self, ${2:args}):
+    """
+    ${3:docstring for $1}
+    """
+    ${0:pass}
+endsnippet
+
+snippet class
+class ${1:classname}(${2:object}):
+    """
+    ${3:doctring for $1}
+    """
+    def __init__(self, ${4:args}):
+        ${5:super($1, self).__init__()}
+        self.$4 = $4
+        ${0:pass}
+endsnippet
+
+snippet .
+self.
+endsnippet
+
+snippet ldv
+${1:var} = lambda ${2:v_in}: ${0:body}
+endsnippet
+
+snippet ld
+lambda ${1:v_in}: ${0:body}
+endsnippet
+
+snippet main
+if __name__ == '__main__':
+    ${0:pass}
+endsnippet
+
+snippet _
+__${1:init}__
+endsnippet
+
+snippet try
+try:
+    ${0:pass}
+except ${1:Exception} as ${2:e}:
+    ${3:logging.exception($2)}
+    ${4:raise $2}
+endsnippet
+
+snippet ilog
+import logging
+${0}
+endsnippet
+
+snippet loge
+logging.exception(${0:e})
+endsnippet
