@@ -1,3 +1,53 @@
+global !p
+import re
+reg_args = re.compile(r'\*{0,2}\s*([a-zA-Z_][a-zA-z0-9_]*)(\s*=(.+))?')
+reg_return = re.compile(r'return\s+.+')
+reg_raise = re.compile(r'raise\s+.+')
+
+def args2list(args):
+  res = []
+  for a in args.split(','):
+    m = reg_args.match(a.strip())
+    if m:
+      name = m.group(1).strip()
+      default = m.group(3)
+      if default:
+        default = default.strip()
+      res.append((name, default))
+  return res
+
+def args2doc(args, prefixe="", exclude=['self']):
+  ls = args2list(args)
+  if not ls:
+    return ''
+
+  line = ['Arguments:']
+  f = "%s%s -- TODO"
+  f_def = f + " (default %s)"
+  max_name_length = max(map(lambda x: len(x[0]), ls))
+  for name, default in ls:
+    if name in exclude:
+      continue
+    sep = (max_name_length - len(name)) * ' '
+    if default is not None:
+      line.append(f_def % (name, sep, default))
+    else:
+      line.append(f % (name, sep))
+  return '\n'.join(map(lambda x: prefixe + x, line))
+
+def return2doc(body, prefixe):
+  m = reg_return.match(body)
+  if m:
+    return prefixe + 'Returns:\n' + prefixe + 'TODO'
+  return ''
+
+def raise2doc(body, prefixe):
+  m = reg_raise.match(body)
+  if m:
+    return prefixe + 'Raises:\n' + prefixe + 'TODO'
+  return ''
+endglobal
+
 snippet #!
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -47,27 +97,40 @@ endsnippet
 snippet def
 def ${1:fname}(${2:args}):
     """
-    ${3:docstring for $1}
+    ${3:Description of $1}
+
+`!p snip.rv = args2doc(t[2], '    ')`
+
+`!p snip.rv = return2doc(t[6], '    ')`
+
+`!p snip.rv = raise2doc(t[6], '    ')`
     """
-    ${0:pass}
+    ${6:pass}
 endsnippet
 
 snippet defm
 def ${1:fname}(self, ${2:args}):
     """
-    ${3:docstring for $1}
+    ${3:\brief $1}
+
+    ${4:Detailed}
+
+`!p snip.rv = '\n'.join([snip.mkline('    \\args ' + a.strip() + ': TODO') for a in t[2].split(',') if a.strip() != 'self'])`
+`!p snip.rv = ('\n' + snip.mkline('    \\return ' + t[5] + ': TODO')) if t[5] else '    \\return None'`
     """
-    ${0:pass}
+    ${0}
 endsnippet
 
 snippet class
 class ${1:classname}(${2:object}):
     """
-    ${3:doctring for $1}
+    ${3:\brief $1}
+
+    ${4:Detailed}
     """
-    def __init__(self, ${4:args}):
-        ${5:super($1, self).__init__()}
-        self.$4 = $4
+    def __init__(self, ${5:args}):
+        ${6:super($1, self).__init__()}
+`!p snip.rv = '\n'.join([snip.mkline('        self.' + a.strip() + ' = ' + a.strip()) for a in t[5].split(',') if a.strip() != 'self'])`
         ${0:pass}
 endsnippet
 
