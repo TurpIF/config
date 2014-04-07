@@ -15,3 +15,9 @@ set foldlevel=99
 
 " Remove extra whitespace at the end of lines
 autocmd BufWritePre <buffer> normal m`:%s/\s\+$//e``
+
+" Jedi - May the force be with you
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_command = "<C-n>"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#popup_on_dot = 0
