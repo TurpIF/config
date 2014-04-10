@@ -26,3 +26,119 @@ class ${1:Class} {
 
 #endif // `!p snip.rv = t[1].upper()`_H
 endsnippet
+
+snippet inc
+#include ${1:<}${0}`!p snip.rv = '>' if t[1] == '<' else '"'`
+endsnippet
+
+snippet for
+for (${1:unsignd long int} ${2:i}(0); $2 < ${3:max}; $2${4:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet fori
+for (${1:type}::iterator ${2:it}(${3:var}.begin());
+    $2 != $3.end(); $2${4:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet foric
+for (${1:type}::const_iterator ${2:it}(${3:var}.cbegin());
+    $2 != $3.cend(); $2${4:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet forv
+for (std::vector<${1:type}>::iterator ${2:it}(${3:var}.begin());
+    $2 != $3.end(); $2${4:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet forvc
+for (std::vector<${1:type}>::const_iterator ${2:it}(${3:var}.cbegin());
+    $2 != $3.cend(); $2${4:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet form
+for (std::map<${1:type}, ${2:type}>::iterator ${3:it}(${4:var}.begin());
+    $3 != $4.end(); $3${5:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet formc
+for (std::map<${1:type}, ${2:type}>::const_iterator ${3:it}(${4:var}.cbegin());
+    $3 != $4.cend(); $3${5:++}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet while
+while (${1:true}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet if
+if (${1:true}) {
+  ${0:/* code */}
+}
+endsnippet
+
+snippet main
+int main(int argc, char ** argv) {
+  ${0:/* code */}
+
+  return 0;
+}
+endsnippet
+
+snippet mainv
+int main(void) {
+  ${0:/* code */}
+
+  return 0;
+}
+endsnippet
+
+snippet set
+void ${1:name}(${2:return_type} const & $1) const {
+  _$1 = $1;
+}
+endsnippet
+
+snippet seth
+void ${1:name}(${2:return_type} const &) const;
+endsnippet
+
+snippet get
+${1:return_type} const & ${2:name}() const {
+  return _$2;
+}
+endsnippet
+
+snippet geth
+${1:return_type} const & ${2:name}() const;
+endsnippet
+
+snippet vec
+std::vector<${1:type}> ${2:vec};
+endsnippet
+
+snippet map
+std::map<${1:type1}, ${2:type2}> ${3:map};
+endsnippet
+
+snippet str
+std::stringt ${1:str}(${2:""});
+endsnippet
+
+snippet print
+std::cout << "${0:Hello World}" << std::endl;
+endsnippet
