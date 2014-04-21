@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+[ -f "/usr/bin/synclient" ] && /usr/bin/synclient MaxTapTime=0
