@@ -1,2 +1,2 @@
 [[ -f ~/.Xresources ]] && xrdb -load ~/.Xresources
-exec startxfce4
+exec dbus-launch startxfce4
