@@ -22,7 +22,7 @@ def args2doc(args, exclude=['self']):
     return ''
 
   line = []
-  f = "%s%s -- TODO"
+  f = ":param %s%s -- TODO"
   f_def = f + " (default %s)"
   max_name_length = max(map(lambda x: len(x[0]) if x[0] not in exclude else 0, ls))
   for name, default in ls:
@@ -88,13 +88,10 @@ def ${1:fname}(${2:args}):
 snip >> 1
 doc = args2doc(t[2])
 if doc:
-  snip.rv = '\n\n' + snip.mkline('Arguments:') + '\n' + doc`
+  snip.rv = '\n\n' + doc`
 
-    Returns:
-    ${4:Nothing}
-
-    Raises:
-    ${5:Nothing}
+    :return ${4:TODO}
+    :raise ${5:TODO}
     """
     ${6:pass}${0}
 
@@ -107,13 +104,10 @@ def ${1:fname}(self, ${2:args}):
 snip >> 1
 doc = args2doc(t[2])
 if doc:
-  snip.rv = '\n\n' + snip.mkline('Arguments:') + '\n' + doc`
+  snip.rv = '\n\n' + doc`
 
-    Returns:
-    ${4:Nothing}
-
-    Raises:
-    ${5:Nothing}
+    return: ${4:TODO}
+    raise: ${5:TODO}
     """
     ${6:pass}${0}
 
@@ -126,7 +120,7 @@ class ${1:classname}(${2:object}):
 snip >> 1
 doc = args2doc(t[5])
 if doc:
-  snip.rv = '\n\n' + snip.mkline('Arguments:') + '\n' + doc`
+  snip.rv = '\n\n' + doc`
     """
     def __init__(self, ${5:args}):
         ${6:super($1, self).__init__()}`!p
