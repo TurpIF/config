@@ -142,6 +142,7 @@ set background=dark
 
 " Determine number of colors
 let s:nb_colors = system('tput colors')
+let s:nb_colors = 256
 execute 'set t_Co=' . s:nb_colors
 
 " Colorscheme
