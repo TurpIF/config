@@ -26,3 +26,4 @@ fi
 
 # Local bin dir
 PATH="$HOME/.bin:$PATH"
+LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"

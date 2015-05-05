@@ -234,7 +234,7 @@ nmap <silent> <leader>so :source $MYVIMRC<cr>
 nmap <silent> <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Disable highlight
-nmap <silent> <leader><cr> :set nohlsearch<cr>
+nmap <silent> <leader><cr> :nohlsearch<cr>
 
 " Quick search and replace
 nnoremap <leader>s :%s/\v<<C-r><C-w>>//gI<left><left><left>

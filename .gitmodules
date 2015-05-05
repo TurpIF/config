@@ -52,3 +52,6 @@
 [submodule "bundle/vim/vim-flake8"]
 	path = bundle/vim/vim-flake8
 	url = https://github.com/nvie/vim-flake8
+[submodule "bundle/vim/vim-syntax-extra"]
+	path = bundle/vim/vim-syntax-extra
+	url = https://github.com/justinmk/vim-syntax-extra
